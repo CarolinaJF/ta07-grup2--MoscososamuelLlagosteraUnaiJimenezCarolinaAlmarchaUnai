@@ -1,0 +1,66 @@
+/* Estilos específicos para centrar y ordenar las cajas de Datos Relevantes */
+.datos-relevantes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en la primera fila */
+    grid-template-rows: auto auto; /* Dos filas automáticas */
+    gap: 40px; /* Espaciado entre cajas */
+    justify-content: center;
+    padding: 30px;
+}
+
+/* Aumentar tamaño de las cajas */
+.datos-relevantes .col-lg-4.mb-4 {
+    max-width: 550px; /* Aún más anchas */
+    width: 100%;
+}
+
+/* Ajustar el diseño de las tarjetas */
+.datos-relevantes .card {
+    display: flex;
+    height: 320px; /* Ligera reducción de altura para mantener proporción */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    border-radius: 12px; /* Bordes redondeados */
+}
+
+/* Ajustar la imagen para que no haga la caja más larga */
+.datos-relevantes .card-img {
+    height: 140px; /* Ajuste de tamaño */
+    overflow: hidden;
+}
+
+.datos-relevantes .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Centrar la segunda fila */
+.datos-relevantes .col-lg-4.mb-4:nth-child(4),
+.datos-relevantes .col-lg-4.mb-4:nth-child(5) {
+    justify-self: center;
+}
+
+/* Media query para pantallas medianas */
+@media (max-width: 1200px) {
+    .datos-relevantes {
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center; /* Centra los elementos */
+    }
+
+    .datos-relevantes .col-lg-4.mb-4:nth-child(4),
+    .datos-relevantes .col-lg-4.mb-4:nth-child(5) {
+        grid-column: span 2; /* Ocuparán dos columnas, quedando centradas */
+    }
+}
+
+/* Media query para móviles */
+@media (max-width: 768px) {
+    .datos-relevantes {
+        grid-template-columns: 1fr;
+    }
+
+    .datos-relevantes .col-lg-4.mb-4:nth-child(4),
+    .datos-relevantes .col-lg-4.mb-4:nth-child(5) {
+        grid-column: auto;
+    }
+}
